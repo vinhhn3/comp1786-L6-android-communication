@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView browser;
 
-    private final String url = "https://www.google.com/";
+    private final String url = "https://www.google.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
