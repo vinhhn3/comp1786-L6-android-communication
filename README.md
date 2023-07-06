@@ -1,41 +1,54 @@
-# Demo Browser Example
+# Intercept User Actions
 
-First, we need to add `WebView` to the layout `activity_main.xml`
+We will use a WebViewClient to intercept the user clicking on a link
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+To achieve this, we will add an inner class in `MainActivity.java`
 
-    <WebView
-        android:id="@+id/myWebView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+```java
+package com.example.comp1786_l6_android_communication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView browser;
+
+    private final String url = "https://www.google.com/";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        browser = findViewById(R.id.myWebView);
+
+        browser.getSettings().setBuiltInZoomControls(true);
+
+        // The inner class handles events that it chooses to override
+        browser.setWebViewClient(new BrowserDemoWebViewClient());
+
+        browser.loadUrl(url);
+    }
+    // Add inner class
+    // Inherits from WebViewClient
+    private class BrowserDemoWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request){
+            // We just load the URL into the view rather than launching the external browser
+            view.loadUrl(request.getUrl().toString());
+            return true;
+        }
+    }
+}
 ```
 
-Add following code to `MainActivity.java` class
+Voila, now when we click on the link, we will not launch the Browser and continue to use WebView
 
-We need to add code to the `AndroidManifest.xml` to allow the app to connect to the Internet
+![img_1.png](img_1.png)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <application
-        android:usesCleartextTraffic="true"
-```
-
-Voila, we can see the `google.com` website now
-
-![img.png](img.png)
+![img_2.png](img_2.png)
