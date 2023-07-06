@@ -1,54 +1,28 @@
-# Intercept User Actions
+# Intercept Back Button
 
-We will use a WebViewClient to intercept the user clicking on a link
+Now the new page is loaded into the WebView
 
-To achieve this, we will add an inner class in `MainActivity.java`
+However, the effect of the user clicking the phone's back button is probably not what they want
+
+It takes them out of the app, probably back to the home screen
+
+We can fix that by intercepting the phone's back button and making it act like a browser's back button
+
+Add the following code `MainActivity.java`
 
 ```java
-package com.example.comp1786_l6_android_communication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
-public class MainActivity extends AppCompatActivity {
-
-    private WebView browser;
-
-    private final String url = "https://www.google.com/";
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        browser = findViewById(R.id.myWebView);
-
-        browser.getSettings().setBuiltInZoomControls(true);
-
-        // The inner class handles events that it chooses to override
-        browser.setWebViewClient(new BrowserDemoWebViewClient());
-
-        browser.loadUrl(url);
-    }
-    // Add inner class
-    // Inherits from WebViewClient
-    private class BrowserDemoWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request){
-            // We just load the URL into the view rather than launching the external browser
-            view.loadUrl(request.getUrl().toString());
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        // Check if the user clicked the Back button
+        if((keyCode == KeyEvent.KEYCODE_BACK)
+                // Check if there is any history in the browser to go back to
+                && browser.canGoBack()
+        ){
+            browser.goBack();
             return true;
         }
+
+        // If another key was pressed, then let the super class handle it
+        return super.onKeyDown(keyCode, event);
     }
-}
 ```
-
-Voila, now when we click on the link, we will not launch the Browser and continue to use WebView
-
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)

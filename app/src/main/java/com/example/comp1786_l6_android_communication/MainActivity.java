@@ -3,6 +3,7 @@ package com.example.comp1786_l6_android_communication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -36,5 +37,20 @@ public class MainActivity extends AppCompatActivity {
             view.loadUrl(request.getUrl().toString());
             return true;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        // Check if the user clicked the Back button
+        if((keyCode == KeyEvent.KEYCODE_BACK)
+                // Check if there is any history in the browser to go back to
+                && browser.canGoBack()
+        ){
+            browser.goBack();
+            return true;
+        }
+
+        // If another key was pressed, then let the super class handle it
+        return super.onKeyDown(keyCode, event);
     }
 }
