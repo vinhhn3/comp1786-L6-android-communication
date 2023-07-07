@@ -21,9 +21,6 @@ First, we need to add `WebView` to the layout `activity_main.xml`
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
-Add following code to `MainActivity.java` class
-
 We need to add code to the `AndroidManifest.xml` to allow the app to connect to the Internet
 
 ```xml
@@ -34,6 +31,28 @@ We need to add code to the `AndroidManifest.xml` to allow the app to connect to 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:usesCleartextTraffic="true"
+```
+
+Add following code to `MainActivity.java` class
+
+```java
+public class MainActivity extends AppCompatActivity {
+    private WebView browser;
+
+    private final String url = "https://www.google.com/";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        browser = findViewById(R.id.myWebView);
+
+        browser.getSettings().setBuiltInZoomControls(true);
+
+        browser.loadUrl(url);
+    }
+}
 ```
 
 Voila, we can see the `google.com` website now
