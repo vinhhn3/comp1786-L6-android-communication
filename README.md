@@ -1,6 +1,31 @@
+# What is HTTP Request and HTTP Response headers?
+
+HTTP requests are like asking for something from a server, and HTTP responses are the server's replies. It's like sending a message and receiving a reply.
+
+An HTTP request header is an extra piece of information you include when making a request, such as what kind of data you are sending or who you are. In response headers, the server provides information about the response it is sending you, such as what type of data you're receiving or if you have special instructions.
+
+![Alt text](image.png)
+
+## What is REST API ?
+
+![Alt text](image-2.png)
+
+## Methods of REST API
+
+![Alt text](image-1.png)
+
+## HTTP Codes
+
+![Alt text](image-4.png)
+
+## Example with Insomnia (REST API client)
+
+![Alt text](image-3.png)
+
 # Overview of the Application
-We will be building a simple app in which we will use an ImageView for showing images of dogs and 
-a button to get an image of another dog. Whenever the button will be pressed, a new HTTP request 
+
+We will be building a simple app in which we will use an ImageView for showing images of dogs and
+a button to get an image of another dog. Whenever the button will be pressed, a new HTTP request
 will be made for fetching a dog image and it will be displayed in the ImageView.
 
 ## Create a New Project in Android Studio
@@ -30,8 +55,8 @@ Navigate to `app` > `manifests` > `AndroidManifest.xml` and add the piece of cod
 
 ## Working with the XML Files
 
-Navigate to the `app` > `res` > `layout` > `activity_main.xml` and add the below code to that file. 
-Below is the code for the `activity_main.xml` file. 
+Navigate to the `app` > `res` > `layout` > `activity_main.xml` and add the below code to that file.
+Below is the code for the `activity_main.xml` file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +96,7 @@ Below is the code for the `activity_main.xml` file.
 
 ## Working with the `MainActivity.java` File
 
-Go to the MainActivity File and refer to the following code. Below is the code for the `MainActivity` File. 
+Go to the MainActivity File and refer to the following code. Below is the code for the `MainActivity` File.
 
 Comments are added inside the code to understand the code in more detail.
 
@@ -172,4 +197,3 @@ public class MainActivity extends AppCompatActivity {
 Voila, now we can make a `GET` request and display image
 
 ![img_2.png](img_2.png)
-
