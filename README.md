@@ -1,11 +1,15 @@
 # Make HTTP Post Request
 
+## Example in Insomnia with POST request
+
+![Alt text](image.png)
+
 ## Introduction
 
-Many android applications use APIs within their application so that they can interact with the database 
-and perform read and write operations on the database. 
+Many android applications use APIs within their application so that they can interact with the database
+and perform read and write operations on the database.
 
-There are several libraries which we can use to make API calls within our android application. 
+There are several libraries which we can use to make API calls within our android application.
 
 We will take a look at How to send POST requests in JSON using HTTP Client in Android.
 
@@ -34,9 +38,9 @@ For adding internet permissions. Navigate to `app` > `AndroidManifest.xml` file 
 
 ## Working with `activity_main.xml`
 
-Navigate to `activity_main.xml`. If this file is not visible. 
+Navigate to `activity_main.xml`. If this file is not visible.
 
-To open this file. In the left pane navigate to `app` >`res` > `layout` > `activity_main.xml` to open this file. 
+To open this file. In the left pane navigate to `app` >`res` > `layout` > `activity_main.xml` to open this file.
 
 After opening this file. Add the below code to it.
 
@@ -241,5 +245,3 @@ Now, we can make POST request
 ![img_2.png](img_2.png)
 
 ![img_3.png](img_3.png)
-
-
