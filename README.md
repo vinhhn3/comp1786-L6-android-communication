@@ -25,8 +25,11 @@ An HTTP request header is an extra piece of information you include when making 
 # Overview of the Application
 
 We will be building a simple app in which we will use an ImageView for showing images of dogs and
-a button to get an image of another dog. Whenever the button will be pressed, a new HTTP request
-will be made for fetching a dog image and it will be displayed in the ImageView.
+a button to get an image of another dog. 
+
+Whenever the button will be pressed, a new HTTP request will be made for fetching a dog image and it will be displayed in the ImageView.
+
+![img_3.png](img_3.png)
 
 ## Create a New Project in Android Studio
 
