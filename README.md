@@ -13,6 +13,10 @@ There are several libraries which we can use to make API calls within our androi
 
 We will take a look at How to send POST requests in JSON using HTTP Client in Android.
 
+## Overview of the application
+
+![img_4.png](img_4.png)
+
 ## Creating a new project in Android Studio
 
 Create the new Android Project with Java language
