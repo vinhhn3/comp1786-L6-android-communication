@@ -80,7 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 (Response.ErrorListener) error -> {
                     // make a Toast telling the user
                     // that something went wrong
-                    Toast.makeText(MainActivity.this, "Some error occurred! Cannot fetch dog image", Toast.LENGTH_LONG).show();
+                    Toast
+                            .makeText(
+                                    MainActivity.this,
+                                    "Some error occurred! Cannot fetch dog image",
+                                    Toast.LENGTH_LONG
+                            )
+                            .show();
                     // log the error message in the error stream
                     Log.e("MainActivity", "loadDogImage error: ${error.localizedMessage}");
                 }
